@@ -16,15 +16,27 @@ public class TrouveSentiment {
 		
 		
 		
-		String directory = "/Users/elviraquesada/Dropbox/M2/2-SEMESTRE/JAVA/obama_texts";
+		String directory = "/Users/elviraquesada/Dropbox/M2/2-SEMESTRE/JAVA/obama-texts";
 		DirectoryStream<Path> stream = Obama_file.get_all_files(directory);
 		
-		ArrayList<String> docs = new ArrayList<String>();
-		docs.add("I stand before you as someone who is not opposed to war in all circumstances.");
-		TestSentiment.init();
-		for (String doc : docs) {
-			System.out.println(doc + " : " + TestSentiment.findSentiment(doc));
+		String chepakoi = null;
+		int i = 0;
+		for (Path path : stream) {
+			chepakoi = Obama_file.read_file(path);
+			
+			System.out.println(path.getFileName());
+			System.out.println(chepakoi);
+			i += 1;
+			
+			TestSentiment.init();
+			
+			System.out.println(i + " : " + TestSentiment.findSentiment(chepakoi));
+			
 		}
+		System.out.println(i);
+		stream.close();
+		
+		
 	}
 
 }

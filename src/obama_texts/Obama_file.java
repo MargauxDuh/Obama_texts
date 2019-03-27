@@ -9,6 +9,8 @@ import java.nio.file.Path;
 
 public class Obama_file {
 
+	
+	//Fichiers dans un répertoire 
 	public static DirectoryStream<Path> get_all_files(String directory) throws IOException{
 		Path p = FileSystems.getDefault().getPath(directory);
 		DirectoryStream<Path> stream = Files.newDirectoryStream(p, "*");
@@ -16,27 +18,27 @@ public class Obama_file {
 	}
 	
 	public static String read_file(Path path) {
-		// The name of the file to open.
+		// Nom du fichier à ouvrir
         String fileName = path.toString();
 
-        // This will reference one line at a time
+        // Lecture de ligne à ligne
         String line = null;
         
-        // Final concatenation of all line
+        // Concaténationde toutes les lignes du fichier
         String file = "";
         
         try {
-            // FileReader reads text files in the default encoding.
+            // FileReader lit les fichiers 
             FileReader fileReader = new FileReader(fileName);
 
-            // Always wrap FileReader in BufferedReader.
+            // 
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             while((line = bufferedReader.readLine()) != null) {
                 file = file + line + "\n";
             }   
 
-            // Always close files.
+            // Clôture du fichier
             bufferedReader.close(); 
             
             return file;
@@ -55,22 +57,6 @@ public class Obama_file {
         }
 	}
 	
-	public static void main(String[] args) throws IOException{
-		
-		String directory = "/Users/duhayon-fontaine/iCloud_Drive_archive/Documents/notes-M2/m2_exo/s2/java/obama-texts";
-		DirectoryStream<Path> stream = get_all_files(directory);
-		
-		String chepakoi = null;
-		int i = 0;
-		for (Path path : stream) {
-			chepakoi = read_file(path);
-			// faire kelkechoz avek chepakoi
-			System.out.println(path.getFileName());
-			System.out.println(chepakoi);
-			i += 1;
-		}
-		System.out.println(i);
-		stream.close();
-	}
+	
 	
 }
