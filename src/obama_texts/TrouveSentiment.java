@@ -19,18 +19,18 @@ public class TrouveSentiment {
 		String directory = "/Users/elviraquesada/Dropbox/M2/2-SEMESTRE/JAVA/obama-texts";
 		DirectoryStream<Path> stream = Obama_file.get_all_files(directory);
 		
-		String chepakoi = null;
+		String texte = null;
 		int i = 0;
 		for (Path path : stream) {
-			chepakoi = Obama_file.read_file(path);
+			texte = Obama_file.read_file(path);
 			
 			System.out.println(path.getFileName());
-			System.out.println(chepakoi);
+			System.out.println(texte);
 			i += 1;
 			
 			TestSentiment.init();
 			
-			System.out.println(i + " : " + TestSentiment.findSentiment(chepakoi));
+			System.out.println(i + " : " + TestSentiment.findSentiment(texte));
 			
 		}
 		System.out.println(i);
