@@ -5,9 +5,11 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import obama_texts.Obama_file;
-import sentimentAnalysisTest.TestSentiment;
+import sentimentAnalysisTest.SentimentAnalyzer;
 
 public class TrouveSentiment {
+	
+	//TEST TEST TEST
 	
 	// MAIN CLASS : pour chaque document des discours on va calculer le sentiment 
 	
@@ -16,7 +18,7 @@ public class TrouveSentiment {
 		
 		
 		
-		String directory = "/Users/elviraquesada/Dropbox/M2/2-SEMESTRE/JAVA/obama-texts";
+		String directory = "./obama-texts";
 		DirectoryStream<Path> stream = Obama_file.get_all_files(directory);
 		
 		String texte = null;
@@ -28,9 +30,9 @@ public class TrouveSentiment {
 			System.out.println(texte);
 			i += 1;
 			
-			TestSentiment.init();
+			SentimentAnalyzer.init();
 			
-			System.out.println(i + " : " + TestSentiment.findSentiment(texte));
+			System.out.println(i + " : " + SentimentAnalyzer.findSentiment(texte));
 			
 		}
 		System.out.println(i);
