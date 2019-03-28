@@ -24,6 +24,7 @@ public class SentimentAnalyzer {
 		
 		// Création des propriétés pour l'objet StandfordCoreNLP
 		
+		// AJOOOOUT AJOUT AJOUT COUCOUCOUCOU 
 		public static void init() {
 			
 			Properties props = new Properties();
